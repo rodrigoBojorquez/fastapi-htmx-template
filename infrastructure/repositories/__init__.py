@@ -1,0 +1,1 @@
+from .contact_repository import ContactRepository as ContactRepository

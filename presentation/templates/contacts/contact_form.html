@@ -1,0 +1,36 @@
+<form 
+    class="space-y-4 bg-gray-50 p-4 rounded shadow-md"
+    hx-post="/contact" 
+    hx-target="#contact-list" 
+    hx-swap="beforeend"
+    @htmx:after-request="$store.modal.toggle()"
+>
+    <div class="error-messages"></div>
+
+    <div>
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" value="{{ contact.name if contact else '' }}" required>
+    </div>
+    
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="{{ contact.email if contact else '' }}">
+    </div>
+
+    <div>
+        <label for="phone">Teléfono</label>
+        <input type="tel" name="phone_number" id="phone" value="{{ contact.phone if contact else '' }}" required>
+    </div>
+
+    <div class="flex justify-end gap-4">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Guardar
+        </button>
+        <button 
+            type="button"
+            @click="$store.modal.toggle()"
+            class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">
+            Cancelar
+        </button>
+    </div>
+</form>

@@ -1,0 +1,3 @@
+from .contact_result import ContactResult as ContactResult
+from .create_contact_command import CreateContactRequest as CreateContactRequest
+from .list_contact_query import ListContactsQuery as ListContactsQuery

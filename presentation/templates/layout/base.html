@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Contactos{% endblock title %}</title>
+    <link rel="icon" type="image/png" href="/static/img/phone-book.png" />
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="/static/css/index.css" />
+</head>
+<body 
+    class="bg-gray-100 min-h-screen flex items-center justify-center"
+    x-data
+    x-on:keydown.escape="$store.modal.toggle()"
+>
+    <main 
+        class="bg-white p-6 rounded shadow-md w-full max-w-3xl"   
+    >
+        {% block content %}
+        {% endblock content %}
+    </main>
+    {% include "partials/modal.html" %}
+</body>
+
+<script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.store("modal", {
+            open: false,
+
+            toggle() {
+                this.open = !this.open
+            }
+        })
+    })
+
+    // htmx.logAll()
+</script>
+</html>

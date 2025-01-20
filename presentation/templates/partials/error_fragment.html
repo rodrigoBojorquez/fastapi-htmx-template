@@ -1,0 +1,7 @@
+<div id="error-messages">
+    <ul>
+        {% for error in errors %}
+            <li>{{ error['loc'] | join(' -> ') }}: {{ error['msg'] }}</li>
+        {% endfor %}
+    </ul>
+</div>

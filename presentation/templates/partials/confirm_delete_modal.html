@@ -1,0 +1,30 @@
+<div
+
+>
+    <h3>
+        ¿Está seguro?
+    </h3>
+
+    <p>
+        Esta acción no se puede deshacer.
+    </p>
+
+    <div>
+        <button
+            type="button"
+            @click="$store.modal.toggle()"
+        >
+            Cancelar
+        </button>
+
+        <button
+            type="button"
+            hx-delete="{{ url }}"
+            hx-target="{{ target }}"
+            hx-swap="outerHTML"
+            class="btn btn-warning"
+        >
+            Eliminar
+        </button>
+    </div>
+</div>

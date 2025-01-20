@@ -1,0 +1,22 @@
+<div id="contact-{{ contact.id }}" class="flex items-center justify-between p-4 bg-white rounded shadow">
+    <p class="text-gray-800">
+        <span class="font-bold">{{ contact.name }}</span> - {{ contact.phone_number }}
+    </p>
+    <div class="flex gap-2">
+        <button 
+            hx-get="/contact/{{ contact.id }}/edit" 
+            hx-target="#contact-modal" 
+            hx-swap="innerHTML"
+            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+            Editar
+        </button>
+        <button 
+            type="button"
+            hx-get="/contact/{{ contact.id }}/delete"
+            @click="$store.modal.toggle()"
+            hx-target="#modal-content"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+            Eliminar
+        </button>
+    </div>
+</div>
