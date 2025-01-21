@@ -1,28 +1,29 @@
-<div
+<div class="p-6 text-center">
+    <div class="h-[200px] flex justify-center">
+        <img src="/static/img/danger.png" class="h-full object-contain" />
+    </div>
 
->
-    <h3>
+    <h3 class="text-xl mt-4 font-semibold text-gray-800 mb-2">
         ¿Está seguro?
     </h3>
 
-    <p>
+    <p class="text-lg text-gray-600 mb-4">
         Esta acción no se puede deshacer.
     </p>
-
-    <div>
-        <button
-            type="button"
+    <div class="flex justify-center gap-4">
+        <button 
+            type="button" 
             @click="$store.modal.toggle()"
+            class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
         >
             Cancelar
         </button>
-
-        <button
-            type="button"
+        <button 
             hx-delete="{{ url }}"
             hx-target="{{ target }}"
             hx-swap="outerHTML"
-            class="btn btn-warning"
+            type="button" 
+            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600"
         >
             Eliminar
         </button>

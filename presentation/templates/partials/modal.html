@@ -5,23 +5,25 @@
     role="dialog"
     tabindex="-1"
     x-on:click.away="$store.modal.toggle()"
-    class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50"
+    class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
     x-cloak
 >
     <div
         x-show="$store.modal.open"
         x-transition
-        class="bg-white p-6 rounded shadow-md w-full max-w-md relative"
+        class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
     >
         <button 
             type="button" 
             x-on:click="$store.modal.toggle()"
-            class="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+            class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
         >
-            &times;
+            <p class="text-[2rem] size-fit">
+                ✕
+            </p>
         </button>
         <div id="modal-content">
-
+            <!-- Contenido dinámico -->
         </div>
     </div>
 </div>

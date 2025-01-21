@@ -1,5 +1,5 @@
 <form 
-    class="space-y-4 bg-gray-50 p-4 rounded shadow-md"
+    class="space-y-6 p-6 rounded-lg "
     hx-post="/contact" 
     hx-target="#contact-list" 
     hx-swap="beforeend"
@@ -7,29 +7,63 @@
 >
     <div class="error-messages"></div>
 
+    <h3 class="text-xl font-semibold text-gray-800 mb-[1.5rem]">
+        {{ 'Editar Contacto' if contact else 'Nuevo Contacto' }}
+    </h3>
+
     <div>
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" value="{{ contact.name if contact else '' }}" required>
+        <label for="name" class="block text-sm font-medium text-gray-700">
+            Nombre
+        </label>
+        <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            value="{{ contact.name if contact else '' }}" 
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        >
     </div>
     
     <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="{{ contact.email if contact else '' }}">
+        <label for="email" class="block text-sm font-medium text-gray-700">
+            Email
+        </label>
+        <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            value="{{ contact.email if contact else '' }}"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        >
     </div>
 
     <div>
-        <label for="phone">Teléfono</label>
-        <input type="tel" name="phone_number" id="phone" value="{{ contact.phone if contact else '' }}" required>
+        <label for="phone" class="block text-sm font-medium text-gray-700">
+            Teléfono
+        </label>
+        <input 
+            type="tel" 
+            name="phone_number" 
+            id="phone" 
+            value="{{ contact.phone_number if contact else '' }}" 
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        >
     </div>
 
     <div class="flex justify-end gap-4">
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        <button 
+            type="submit" 
+            class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600"
+        >
             Guardar
         </button>
         <button 
             type="button"
             @click="$store.modal.toggle()"
-            class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">
+            class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
+        >
             Cancelar
         </button>
     </div>

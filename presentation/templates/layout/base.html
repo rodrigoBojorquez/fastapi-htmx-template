@@ -10,16 +10,23 @@
     <link rel="stylesheet" href="/static/css/index.css" />
 </head>
 <body 
-    class="bg-gray-100 min-h-screen flex items-center justify-center"
+    class="bg-white h-dvh flex flex-col flex-1"
     x-data
     x-on:keydown.escape="$store.modal.toggle()"
 >
-    <main 
-        class="bg-white p-6 rounded shadow-md w-full max-w-3xl"   
+    {% include "layout/header.html" %}
+
+    <main
+        class="flex justify-center grow px-3 lg:px-10 py-[3rem]"   
     >
-        {% block content %}
-        {% endblock content %}
+        <div class="max-w-screen-2xl w-full" id="page-content">
+            {% block content %}
+            {% endblock content %}
+        </div>
     </main>
+
+    {% include "layout/footer.html" %}
+
     {% include "partials/modal.html" %}
 </body>
 

@@ -26,7 +26,6 @@ async def contact_list(
     search = query_params.get("search", None)
 
     contacts = service.list(page, search)
-    ic(contacts)
 
     return templates.TemplateResponse(
         request=request,
@@ -84,7 +83,6 @@ async def edit_contact_form(
     )
 
 @contact_router.get("/contact/{id}/delete", response_class=HTMLResponse)
-@inject
 async def delete_contact_modal(
     id: int,
     request: Request,
@@ -106,3 +104,17 @@ async def delete_contact(
 ):
     service.delete_contact(id)
     return Response(status_code=status.HTTP_200_OK)
+
+@contact_router.get("/contact/{id}/edit", response_class=HTMLResponse)
+@inject
+async def edit_contact_form(
+    id: int,
+    request: Request,
+    service: ContactService = Depends(Provide[Container.contact_service])
+):
+    contact = service.get_contact(id)
+
+    return templates.TemplateResponse(
+        "contacts/contact_form.html",
+        context={"request": request, "contact": contact}
+    )
