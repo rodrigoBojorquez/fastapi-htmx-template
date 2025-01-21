@@ -1,14 +1,13 @@
 from fastapi import Request, status
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
-from fastapi.exceptions import RequestValidationError
-from presentation import app, templates
+from fastapi.exceptions import RequestValidationError, HTTPException
+from presentation import app
+from presentation.templates import templates
 from icecream import ic
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, ex: RequestValidationError):
-
-    ic(ex.errors())
 
     errors = ex.errors()
 
@@ -27,4 +26,16 @@ async def validation_exception_handler(request: Request, ex: RequestValidationEr
     return JSONResponse(
         content={"detail": jsonable_encoder(errors)},
         status_code=400,
+    )
+
+@app.exception_handler(HTTPException)
+async def not_found_exception_handler(request: Request, ex: HTTPException):
+
+    if ex.status_code == 404:
+        return templates.TemplateResponse("partials/not_found_for_modal.html", {"request": request}, status_code=404)
+
+    return templates.TemplateResponse(
+        "partials/error_fragment.html",
+        {"request": request, "errors": [{"msg": ex.detail}]},
+        status_code=ex.status_code,
     )

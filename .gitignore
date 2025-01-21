@@ -10,6 +10,10 @@ __pycache__/
 # C extensions
 *.so
 
+node_modules/
+.vscode/
+presentation/common/assets/css/index.css
+
 # Distribution / packaging
 .Python
 build/

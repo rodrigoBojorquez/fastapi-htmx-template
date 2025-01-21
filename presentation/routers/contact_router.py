@@ -88,7 +88,7 @@ async def delete_contact_modal(
     request: Request,
 ):
     return templates.TemplateResponse(
-        "partials/confirm_delete_modal.html",
+        "partials/confirm_delete_for_modal.html",
         context={
             "request": request,
             "url": f"/contact/{id}",
