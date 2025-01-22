@@ -1,11 +1,13 @@
 # Plantilla de Clean Architecture y DI en Python
 
 ## Contenidos
-1. [Requisitos](#requisitos)
-2. [Demo](#demo)
-3. [Motivación](#motivación)
-4. [Conceptos](#conceptos)
-5. [Curiosidades](#curiosidades)
+- [Plantilla de Clean Architecture y DI en Python](#plantilla-de-clean-architecture-y-di-en-python)
+  - [Contenidos](#contenidos)
+  - [Requisitos](#requisitos)
+  - [Demo](#demo)
+  - [Motivación](#motivación)
+  - [Conceptos](#conceptos)
+  - [Curiosidades](#curiosidades)
 
 ---
 
@@ -55,22 +57,20 @@ Sigue estos pasos para descargar y ejecutar la demo de esta plantilla:
 ---
 
 ## Motivación
-Durante los últimos meses, he dedicado tiempo a aprender sobre patrones de diseño y arquitectura que permiten crear aplicaciones robustas y escalables. En el ecosistema de Python, especialmente en la comunidad hispana, no es común encontrar recursos sobre este tema. 
+He pasado los últimos meses leyendo y aprendiendo sobre patrones de diseño y de arquitectura para crear aplicaciones robustas y escalables, y me he percatado que en el ecosistema de Python no es algo de lo que se hable a menudo (y menos en la comunidad hispana!), ya que normalmente me he topado que la gente y sobre todo las personas que estan empezando en el mundo de la programación utilizan python como un lenguaje de scripting para realizar pequeñas automatizaciones.
 
-Python es frecuentemente utilizado como lenguaje de scripting para automatizaciones, pero quise llevarlo más allá replicando conceptos de arquitectura y patrones de diseño que, en mi experiencia, hacen más cómodo y eficiente trabajar en aplicaciones complejas. 
+Es por eso que me he dado a la tarea de intentar replicar en un proyecto de Python los conceptos de arquitectura y patrones de diseño que más me gustan personalmente a la hora de querer crear una aplicación robusta y con la que me sienta comodo de trabajar en ella.
 
-Esta plantilla es el resultado de ese esfuerzo, y espero que sirva como una guía para quienes deseen explorar estos conceptos.
+Pero antes me gustaría compartir algunas definiciones de los conceptos que utilicé en esta pequeña demo.
 
 ---
 
 ## Conceptos
-A continuación, se describen los principales conceptos utilizados en esta demo:
-
 - **Clean Architecture**:  
   Un estilo de arquitectura que promueve la separación de responsabilidades mediante capas bien definidas, asegurando que la lógica de negocio no dependa de detalles externos como frameworks o bases de datos.
 
 - **Arquitecturas basadas en capas**:  
-  Dividen una aplicación en capas (como presentación, aplicación, dominio y datos) para organizar el código de manera lógica y promover la mantenibilidad.
+  Dividen una aplicación en capas (como presentación, aplicación, dominio e infrastructura) para organizar el código de manera lógica y promover la mantenibilidad.
 
 - **Inyección de dependencias**:  
   Es un patrón de diseño que consiste en proporcionar las dependencias (objetos que una clase necesita) desde fuera, en lugar de crearlas dentro de la propia clase. Esto facilita la prueba y el mantenimiento del código.
@@ -81,9 +81,8 @@ A continuación, se describen los principales conceptos utilizados en esta demo:
 ---
 
 ## Curiosidades
-En esta demo, me aventuré a utilizar la filosofía **HATEOAS** para crear un servidor que se comunique utilizando hipertexto, uno de los pilares fundamentales de la web. Esto contrasta con el enfoque tradicional de aplicaciones SPA (como React, Angular o Vue).
-
-Para lograrlo, utilicé la librería [HTMX](https://htmx.org/), que permite transformar HTML en una experiencia moderna y fluida sin necesidad de un framework pesado. Si quieres aprender más sobre HTMX, te recomiendo revisar su [documentación oficial](https://htmx.org/).
+Para esta demo he decidido aventurarme a utilizar la filosofía **HATEOAS** para crear una aplicación que se comunique utilizando uno de los pilares de la web, el hipertexto, esto contrasta con la ampliamente utilizada aplicación SPA que observamos en todos  lados (como React, Angular o Vue).
+Para lograrlo, utilicé la librería [HTMX](https://htmx.org/), que permite transformar HTML en una experiencia moderna y fluida sin necesidad de escribir cientos de lineas de javascript. Si quieres aprender más sobre HTMX, te recomiendo revisar su [documentación oficial](https://htmx.org/).
 
 ---
 
